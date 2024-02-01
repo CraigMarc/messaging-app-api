@@ -3,4 +3,4 @@
 Post http://localhost:3000/signup 
 Content-Type: application/json
 
-{"firstName": "Craig", "lastName":"Mar", "userName":"cmar@yahoo.com", "password": "123456"}
+{"firstName": "Jan", "lastName":"Green", "userName":"jgreen@yahoo.com", "password": "123456", "confirm": "123456"}
