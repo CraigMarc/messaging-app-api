@@ -17,16 +17,16 @@ exports.sign_up = [
     .trim()
     .isLength({ min: 1 })
     .escape()
-    .withMessage("Category name must be specified.")
+    .withMessage("first name must be specified.")
     .isAlphanumeric()
-    .withMessage("Category name has non-alphanumeric characters."),
+    .withMessage("first name has non-alphanumeric characters."),
   body("lastName")
     .trim()
     .isLength({ min: 1 })
     .escape()
-    .withMessage("Description must be specified.")
+    .withMessage("last name must be specified.")
     .isAlphanumeric()
-    .withMessage("Description has non-alphanumeric characters."),
+    .withMessage("last name has non-alphanumeric characters."),
   body("userName")
     .trim()
     .isLength({ min: 4 })

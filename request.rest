@@ -26,3 +26,15 @@ Content-Type: application/json
 Get http://localhost:3000/users/messages
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDY4MjQ5NDcsImV4cCI6MTcwNjgyOTE0N30.thFC6BTwRWemjEeFx_P-XSc2peKUhj3buigKW5TMPcg
 Content-Type: application/json
+
+### send message
+
+Post http://localhost:3000/users/messages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDY4MjQ5NDcsImV4cCI6MTcwNjgyOTE0N30.thFC6BTwRWemjEeFx_P-XSc2peKUhj3buigKW5TMPcg
+Content-Type: application/json
+
+{ 
+"sentBy":"jgreen@yahoo.com", 
+"sentTo": "cmar@yahoo.com",
+"text": "my first message"
+}
