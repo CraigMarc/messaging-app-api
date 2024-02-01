@@ -7,6 +7,10 @@ const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 dotenv.config();
 const cors = require('cors');
+const passport = require("passport");
+const JwtStrategy = require("passport-jwt").Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
+const User = require("./models/user");
 
 
 const indexRouter = require('./routes/index');
@@ -25,12 +29,40 @@ app.use(
 
 app.use(cors());
 
+// connect database
+
 const mongoDB = process.env.MONGODB_URI 
 
 main().catch((err) => console.log(err));
 async function main() {
 await mongoose.connect(mongoDB);
 }
+
+//added auth route
+
+
+const opts = {}
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = process.env.SECRET_KEY; //normally store this in process.env.secret
+//opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('JWT')
+
+passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
+  
+  try {
+  let userDb = User.findOne({userName: jwt_payload.userName})
+    
+    if (userDb) {
+        return done(null, true);
+    } else {
+        return done(null, false);
+        
+    }
+  }
+  catch (error) {
+    console.log(error)
+  }
+}))
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,7 +75,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
+// protect users routess
+app.use('/users', passport.authenticate('jwt', {session: false}), usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,6 +1,28 @@
-### new comment 
+### new user
 
 Post http://localhost:3000/signup 
 Content-Type: application/json
 
-{"firstName": "Jan", "lastName":"Green", "userName":"jgreen@yahoo.com", "password": "123456", "confirm": "123456"}
+{"firstName": "Jan", 
+"lastName":"Green", 
+"userName":"jgreen@yahoo.com", 
+"password": "123456", 
+"confirm": "123456"}
+
+
+
+### user login get token
+
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{ 
+"userName":"jgreen@yahoo.com", 
+"password": "123456"
+}
+
+### get user messages
+
+Get http://localhost:3000/users/messages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDY4MjQ5NDcsImV4cCI6MTcwNjgyOTE0N30.thFC6BTwRWemjEeFx_P-XSc2peKUhj3buigKW5TMPcg
+Content-Type: application/json
