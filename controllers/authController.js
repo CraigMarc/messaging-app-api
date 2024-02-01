@@ -11,6 +11,9 @@ const bcrypt = require('bcryptjs')
 // sign up route
 
 exports.sign_up = asyncHandler(async (req, res, next) => {
+
+    //check for dupliicate usernames ************************
+    // check if passwords match *******************
     
     bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
         // if err, do something
@@ -43,9 +46,9 @@ exports.log_in = asyncHandler(async (req, res, next) => {
 
         const match = await bcrypt.compare(password, userDb[0].password);
 
-        if (userDb[0].userName === email) {
+       // if (userDb[0].userName === email) { ****** check blog dont think need this
             if (match == true) {
-                //if (userDb[0].password === password) { //the password compare would normally be done using bcrypt.
+               
                 const opts = {}
                 opts.expiresIn = 1200;  //token expires in 2min
                 const secret = process.env.SECRET_KEY
@@ -55,7 +58,7 @@ exports.log_in = asyncHandler(async (req, res, next) => {
                     token
                 })
             }
-        }
+       // }
 
     } catch (error) {
         res.status(500).json({ message: "wrong username or password" });
