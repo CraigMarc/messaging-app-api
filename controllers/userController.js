@@ -5,9 +5,19 @@ const Message = require("../models/message");
 
 // get user messages
 
+
+
 exports.get_messages = asyncHandler(async (req, res, next) => {
-    res.json({ message: "working" })
-})
+
+    try {
+        let allPostsSent = await Message.find({ sentTo: req.body.userName }).exec()
+        let allPostsBy = await Message.find({ sentBy: req.body.userName }).exec()
+        res.status(200).json({allPostsSent: allPostsSent, allPostsBy: allPostsBy})
+    } catch (error) {
+        res.status(500).json({ message: error });
+    }
+
+});
 
 // send new message
 
@@ -29,7 +39,7 @@ exports.new_message = [
         .isLength({ min: 1 })
         .escape()
         .withMessage("Text must be specified."),
-        
+
 
 
     // Process request after validation and sanitization.
