@@ -12,12 +12,27 @@ exports.get_messages = asyncHandler(async (req, res, next) => {
     try {
         let allPostsSent = await Message.find({ sentTo: req.body.userName }).exec()
         let allPostsBy = await Message.find({ sentBy: req.body.userName }).exec()
-        res.status(200).json({allPostsSent: allPostsSent, allPostsBy: allPostsBy})
+        res.status(200).json({ allPostsSent: allPostsSent, allPostsBy: allPostsBy })
     } catch (error) {
         res.status(500).json({ message: error });
     }
 
 });
+
+// get users
+
+exports.get_users = asyncHandler(async (req, res, next) => {
+
+    try {
+        let allUsers = await User.find().exec()
+        
+        res.status(200).json(allUsers)
+    } catch (error) {
+        res.status(500).json({ message: error });
+    }
+
+});
+
 
 // send new message
 

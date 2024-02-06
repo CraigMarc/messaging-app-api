@@ -43,3 +43,11 @@ Content-Type: application/json
 "sentTo": "jgreen@yahoo.com",
 "text": "my second message"
 }
+
+### get users
+
+Get http://localhost:3000/users/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDcyNTQ4ODIsImV4cCI6MTcwNzI1NzA4Mn0.3lpoIjb3sISZWN7JXIRd0zWqPLy6sJ-ZtWIqk1CwJIQ
+Content-Type: application/json
+
+
