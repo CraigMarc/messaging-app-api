@@ -23,8 +23,8 @@ Content-Type: application/json
 
 ### get user messages
 
-Get http://localhost:3000/users/messages
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDY4MjQ5NDcsImV4cCI6MTcwNjgyOTE0N30.thFC6BTwRWemjEeFx_P-XSc2peKUhj3buigKW5TMPcg
+Post http://localhost:3000/users/allmessages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDcyNTkwODEsImV4cCI6MTcwNzI2MTI4MX0.lDBIxoV73wBo1dMmYlDGUUXKcbsrHPK4kUgFlbnnnG0
 Content-Type: application/json
 
 { 
@@ -47,7 +47,7 @@ Content-Type: application/json
 ### get users
 
 Get http://localhost:3000/users/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDcyNTQ4ODIsImV4cCI6MTcwNzI1NzA4Mn0.3lpoIjb3sISZWN7JXIRd0zWqPLy6sJ-ZtWIqk1CwJIQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImNtYXJAeWFob28uY29tIiwiaWF0IjoxNzA3MjU2OTI5LCJleHAiOjE3MDcyNTkxMjl9.0VHQfiP9V-XEFp5vcgaKuHKtfd1kyJpyCcNMctcw3Jo
 Content-Type: application/json
 
 

@@ -8,7 +8,7 @@ router.post("/messages", user_controller.new_message);
 
 // get user messages
 
-router.get("/messages", user_controller.get_messages);
+router.post("/allmessages", user_controller.get_messages);
 
 // get users
 
