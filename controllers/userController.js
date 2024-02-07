@@ -181,4 +181,36 @@ exports.post_pic = [
   
   ]
 
+  //delete pic
+
+  exports.delete_pic = asyncHandler(async (req, res, next) => {
+
+    try {
+      //find pic file
+      let userPic = await User.findById(req.body.user_id);
+  
+      //delete pic file
+      if (userPic.image) {
+        fs.unlink("./uploads/" + userPic.image, (err) => {
+          if (err) {
+            throw err;
+          }
+  
+          console.log("Delete File successful.");
+        });
+      }
+  
+      // update database
+  
+      await User.findByIdAndUpdate(req.body.user_id, { $unset: { image: "" } });
+      let allUsers = await User.find().exec()
+      res.status(200).json(allUsers)
+  
+    }
+    catch (error) {
+      res.status(500).json({ message: error });
+    }
+  
+  
+  })
 

@@ -23,5 +23,9 @@ router.delete("/messages", user_controller.delete_messages);
 
 router.post("/image", user_controller.post_pic);
 
+// delete pic
+
+router.delete("/image", user_controller.delete_pic);
+
 
 module.exports = router;

@@ -74,3 +74,14 @@ Content-Type: image/jpeg
 
 < ./pizza.jpeg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### delete pic
+
+Delete http://localhost:3000/users/image
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczNDcxMTcsImV4cCI6MTcwNzM0OTExN30.WOFJVdkJAn5Qdpkw5B4qVMjuC8V_cGiQsT-0yX8zMls
+Content-Type: application/json
+
+{ 
+"user_id":"65baeb34b3128250da42b385"
+
+}
