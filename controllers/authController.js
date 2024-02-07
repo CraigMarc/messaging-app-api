@@ -109,10 +109,13 @@ exports.log_in = asyncHandler(async (req, res, next) => {
       opts.expiresIn = 2000;
       const secret = process.env.SECRET_KEY
       const token = jwt.sign({ userName }, secret, opts);
+
+      
     
       return res.status(200).json({
         message: "Auth Passed",
-        token: token
+        token: token,
+        user_id: userDb[0]._id
        
       })
     }
