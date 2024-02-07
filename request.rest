@@ -35,19 +35,19 @@ Content-Type: application/json
 ### send message
 
 Post http://localhost:3000/users/messages
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDY4MjQ5NDcsImV4cCI6MTcwNjgyOTE0N30.thFC6BTwRWemjEeFx_P-XSc2peKUhj3buigKW5TMPcg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDcyNzUzMjEsImV4cCI6MTcwNzI3NzMyMX0.5gS3npBnZAU-GqtalWDvdWhr9gnjJ7BDVsqsyUhYSiY
 Content-Type: application/json
 
 { 
-"sentBy":"cmar@yahoo.com", 
-"sentTo": "jgreen@yahoo.com",
-"text": "my second message"
+"sentBy":"jbrom@gmail.com", 
+"sentTo": "cmar@yahoo.com",
+"text": "my fith message"
 }
 
 ### get users
 
 Get http://localhost:3000/users/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImNtYXJAeWFob28uY29tIiwiaWF0IjoxNzA3MjU2OTI5LCJleHAiOjE3MDcyNTkxMjl9.0VHQfiP9V-XEFp5vcgaKuHKtfd1kyJpyCcNMctcw3Jo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDcyNjg1ODIsImV4cCI6MTcwNzI3MDU4Mn0.Nff-pZxqnJfwGJhB9wODANV9qHZrB_pEBboTuohNs00
 Content-Type: application/json
 
 

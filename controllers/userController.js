@@ -25,7 +25,7 @@ exports.get_users = asyncHandler(async (req, res, next) => {
 
     try {
         let allUsers = await User.find().exec()
-        
+
         res.status(200).json(allUsers)
     } catch (error) {
         res.status(500).json({ message: error });
@@ -92,6 +92,9 @@ exports.new_message = [
                 })
                 const user = new Message(messageDetail);
                 await user.save()
+                let allPostsSent = await Message.find({ sentTo: req.body.sentBy }).exec()
+                let allPostsBy = await Message.find({ sentBy: req.body.sentTo }).exec()
+                res.status(200).json({ allPostsSent: allPostsSent, allPostsBy: allPostsBy })
                 res.json({ message: "message saved" })
             }
 
