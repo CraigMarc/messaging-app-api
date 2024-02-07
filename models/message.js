@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const MessageSchema = new Schema({
-  sentBy: { type: String, required: true },
-  sentTo: { type: String, required: true },
+  sentBy: { type: Schema.Types.ObjectId, ref: "User" },
+  sentTo: { type: Schema.Types.ObjectId, ref: "User" },
   timestamp: { type: Date, default: new Date() },
   text: { type: String, required: true },
 });

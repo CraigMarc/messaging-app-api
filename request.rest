@@ -24,23 +24,23 @@ Content-Type: application/json
 ### get user messages
 
 Post http://localhost:3000/users/allmessages
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDcyNTkwODEsImV4cCI6MTcwNzI2MTI4MX0.lDBIxoV73wBo1dMmYlDGUUXKcbsrHPK4kUgFlbnnnG0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczMzQ2ODksImV4cCI6MTcwNzMzNjY4OX0.8Qma-ikOMqrqn5rE-IvRbNgozgA8QJEr-FMRNT7RE5A
 Content-Type: application/json
 
 { 
-"userName":"cmar@yahoo.com"
+"userName":"65baeb34b3128250da42b385"
 
 }
 
 ### send message
 
 Post http://localhost:3000/users/messages
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDcyNzUzMjEsImV4cCI6MTcwNzI3NzMyMX0.5gS3npBnZAU-GqtalWDvdWhr9gnjJ7BDVsqsyUhYSiY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczMzUwMDMsImV4cCI6MTcwNzMzNzAwM30.VlLTv_Kl2vk31D43mtWRPHQKcSj_jZh5S_AEUhBfNNo
 Content-Type: application/json
 
 { 
-"sentBy":"jbrom@gmail.com", 
-"sentTo": "cmar@yahoo.com",
+"sentBy":"65baeb34b3128250da42b385", 
+"sentTo": "65bd77eeeff8012f039e632d",
 "text": "my fith message"
 }
 
@@ -50,4 +50,8 @@ Get http://localhost:3000/users/users
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDcyNjg1ODIsImV4cCI6MTcwNzI3MDU4Mn0.Nff-pZxqnJfwGJhB9wODANV9qHZrB_pEBboTuohNs00
 Content-Type: application/json
 
+### delete messages
 
+Delete http://localhost:3000/users/messages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczMzU5NTksImV4cCI6MTcwNzMzNzk1OX0.-CoiSa22rnzf0tVKlsMkeFM7KurTfMW-Faau8X7pdYQ
+Content-Type: application/json

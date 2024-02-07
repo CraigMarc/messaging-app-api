@@ -10,8 +10,8 @@ const Message = require("../models/message");
 exports.get_messages = asyncHandler(async (req, res, next) => {
 
     try {
-        let allPostsSent = await Message.find({ sentTo: req.body.userName }).exec()
-        let allPostsBy = await Message.find({ sentBy: req.body.userName }).exec()
+        let allPostsSent = await Message.find({ sentTo: req.body.userName }).populate('sentTo').populate('sentBy').exec()
+        let allPostsBy = await Message.find({ sentBy: req.body.userName }).populate('sentBy').populate('sentTo').exec()
         res.status(200).json({ allPostsSent: allPostsSent, allPostsBy: allPostsBy })
     } catch (error) {
         res.status(500).json({ message: error });
@@ -74,7 +74,7 @@ exports.new_message = [
         else {
             // Data from form is valid.
             // Check if Username already exists.
-            const userNameExists = await User.findOne({ userName: req.body.sentTo }).exec();
+            const userNameExists = await User.findOne({ _id: req.body.sentTo }).exec();
             if (!userNameExists) {
                 // UserName exists, redirect to its detail page.
 
@@ -92,8 +92,8 @@ exports.new_message = [
                 })
                 const user = new Message(messageDetail);
                 await user.save()
-                let allPostsSent = await Message.find({ sentTo: req.body.sentBy }).exec()
-                let allPostsBy = await Message.find({ sentBy: req.body.sentBy }).exec()
+                let allPostsSent = await Message.find({ sentTo: req.body.sentBy }).populate('sentTo').populate('sentBy').exec()
+                let allPostsBy = await Message.find({ sentBy: req.body.sentBy }).populate('sentBy').populate('sentTo').exec()
                 res.status(200).json({ allPostsSent: allPostsSent, allPostsBy: allPostsBy })
                 
             }
@@ -101,5 +101,19 @@ exports.new_message = [
         }
     })
 ];
+
+// delete all messages
+
+exports.delete_messages = asyncHandler(async (req, res, next) => {
+
+    try {
+      await Message.deleteMany()
+
+        res.status(200).json({message:"messages deleted"})
+    } catch (error) {
+        res.status(500).json({ message: error });
+    }
+
+});
 
 

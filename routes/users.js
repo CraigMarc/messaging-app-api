@@ -14,6 +14,10 @@ router.post("/allmessages", user_controller.get_messages);
 
 router.get("/users", user_controller.get_users);
 
+// delete messages
+
+
+router.delete("/messages", user_controller.delete_messages);
 
 
 module.exports = router;
