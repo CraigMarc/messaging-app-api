@@ -7,6 +7,7 @@ const UserSchema = new Schema({
   lastName: { type: String, required: true, minLength: 1 },
   userName: { type: String, required: true, minLength: 4 },
   password: { type: String, required: true, minLength: 6 },
+  image: { type: String }, 
  
 });
 

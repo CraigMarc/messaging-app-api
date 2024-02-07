@@ -2,10 +2,41 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const User = require("../models/user");
 const Message = require("../models/message");
+const multer = require("multer"); // For uploading images
+const fs = require('fs');
+
+// configure multer for pic uploads
+
+let storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './uploads')
+    },
+    filename: function (req, file, cb) {
+      let extArray = file.mimetype.split("/");
+      let extension = extArray[extArray.length - 1];
+      cb(null, file.fieldname + '-' + Date.now() + '.' + extension)
+    }
+  })
+  
+  // only allow jpeg and png files
+  
+  const fileFilter=(req, file, cb)=>{
+    if(file.mimetype ==='image/jpeg' || file.mimetype ==='image/jpg' || file.mimetype ==='image/png'){
+        cb(null,true);
+    }else{
+        cb(null, false);
+    }
+  
+   }
+  
+   const upload = multer({ 
+    storage:storage,
+    fileFilter:fileFilter
+  });
+  
+  
 
 // get user messages
-
-
 
 exports.get_messages = asyncHandler(async (req, res, next) => {
 
@@ -115,5 +146,39 @@ exports.delete_messages = asyncHandler(async (req, res, next) => {
     }
 
 });
+
+//upload image
+
+exports.post_pic = [
+
+    // Handle single file upload with field name "image"
+    upload.single("image"),
+  
+  
+    async function (req, res, next) {
+  
+  console.log(req.body.id)
+      //let picPost = await Posts.findById(req.params.postId);
+  
+  /*
+      const post = new Posts({
+        title: picPost.title,
+        text: picPost.text,
+        published: false,
+        _id: req.params.postId,
+        image: req.file.filename
+      });*/
+  
+      try {
+        await User.findByIdAndUpdate(req.body.id, {image: req.file.filename});
+        let allUsers = await User.find().exec()
+        res.status(200).json(allUsers)
+      } catch (error) {
+        res.status(500).json({ message: error });
+      }
+    }
+  
+  
+  ]
 
 

@@ -35,12 +35,12 @@ Content-Type: application/json
 ### send message
 
 Post http://localhost:3000/users/messages
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczMzUwMDMsImV4cCI6MTcwNzMzNzAwM30.VlLTv_Kl2vk31D43mtWRPHQKcSj_jZh5S_AEUhBfNNo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczNDQ1OTYsImV4cCI6MTcwNzM0NjU5Nn0.TxJOjSXt14UlSsTtLvfcqjgiikYQS2ZxN3SEvt5lHjs
 Content-Type: application/json
 
 { 
 "sentBy":"65baeb34b3128250da42b385", 
-"sentTo": "65bd77eeeff8012f039e632d",
+"sentTo": "65bc1031d08cc18ebd189239",
 "text": "my fith message"
 }
 
@@ -55,3 +55,22 @@ Content-Type: application/json
 Delete http://localhost:3000/users/messages
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczMzU5NTksImV4cCI6MTcwNzMzNzk1OX0.-CoiSa22rnzf0tVKlsMkeFM7KurTfMW-Faau8X7pdYQ
 Content-Type: application/json
+
+
+
+
+### multipart form request with webkit
+POST http://localhost:3000/users/image
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczNDcxMTcsImV4cCI6MTcwNzM0OTExN30.WOFJVdkJAn5Qdpkw5B4qVMjuC8V_cGiQsT-0yX8zMls
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="id"
+
+65baeb34b3128250da42b385
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="./pizza.jpeg"
+Content-Type: image/jpeg
+
+< ./pizza.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

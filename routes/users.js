@@ -19,5 +19,9 @@ router.get("/users", user_controller.get_users);
 
 router.delete("/messages", user_controller.delete_messages);
 
+// add picture
+
+router.post("/image", user_controller.post_pic);
+
 
 module.exports = router;
