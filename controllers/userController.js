@@ -93,9 +93,9 @@ exports.new_message = [
                 const user = new Message(messageDetail);
                 await user.save()
                 let allPostsSent = await Message.find({ sentTo: req.body.sentBy }).exec()
-                let allPostsBy = await Message.find({ sentBy: req.body.sentTo }).exec()
+                let allPostsBy = await Message.find({ sentBy: req.body.sentBy }).exec()
                 res.status(200).json({ allPostsSent: allPostsSent, allPostsBy: allPostsBy })
-                res.json({ message: "message saved" })
+                
             }
 
         }
