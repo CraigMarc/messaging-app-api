@@ -157,18 +157,6 @@ exports.post_pic = [
   
     async function (req, res, next) {
   
-  console.log(req.body.id)
-      //let picPost = await Posts.findById(req.params.postId);
-  
-  /*
-      const post = new Posts({
-        title: picPost.title,
-        text: picPost.text,
-        published: false,
-        _id: req.params.postId,
-        image: req.file.filename
-      });*/
-  
       try {
         await User.findByIdAndUpdate(req.body.id, {image: req.file.filename});
         let allUsers = await User.find().exec()

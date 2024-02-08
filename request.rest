@@ -47,7 +47,7 @@ Content-Type: application/json
 ### get users
 
 Get http://localhost:3000/users/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDcyNjg1ODIsImV4cCI6MTcwNzI3MDU4Mn0.Nff-pZxqnJfwGJhB9wODANV9qHZrB_pEBboTuohNs00
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDc0MjEyMDQsImV4cCI6MTcwNzQyMzIwNH0.1y1ujnpUo-LBMeVCw7S22JCwzhgacqSoR5vVg8p01v8
 Content-Type: application/json
 
 ### delete messages
@@ -61,13 +61,13 @@ Content-Type: application/json
 
 ### multipart form request with webkit
 POST http://localhost:3000/users/image
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczNDcxMTcsImV4cCI6MTcwNzM0OTExN30.WOFJVdkJAn5Qdpkw5B4qVMjuC8V_cGiQsT-0yX8zMls
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDc0MjEyMDQsImV4cCI6MTcwNzQyMzIwNH0.1y1ujnpUo-LBMeVCw7S22JCwzhgacqSoR5vVg8p01v8
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="id"
 
-65baeb34b3128250da42b385
+65c52c0a23f11a949639812c
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="image"; filename="./pizza.jpeg"
 Content-Type: image/jpeg
