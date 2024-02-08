@@ -107,7 +107,7 @@ exports.log_in = asyncHandler(async (req, res, next) => {
     if (match == true) {
 
       const opts = {}
-      opts.expiresIn = 2000;
+      opts.expiresIn = 10;
       const secret = process.env.SECRET_KEY
       const token = jwt.sign({ userName }, secret, opts);
 
