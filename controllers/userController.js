@@ -210,7 +210,7 @@ exports.delete_user = asyncHandler(async (req, res, next) => {
   try {
 
     let userPic = await User.findById(req.body.id);
-console.log(userPic.image)
+
     //delete pic file
     if (userPic.image != "noProfile.png") {
       fs.unlink("./uploads/" + userPic.image, (err) => {
@@ -221,6 +221,13 @@ console.log(userPic.image)
         console.log("Delete File successful.");
       });
     }
+
+    // delete all users messages
+
+    await Message.deleteMany({sentTo: req.body.id})
+    await Message.deleteMany({sentBy: req.body.id})
+
+
 
     await User.findOneAndDelete({ _id: req.body.id })
 
