@@ -47,7 +47,7 @@ Content-Type: application/json
 ### get users
 
 Get http://localhost:3000/users/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDc0MjEyMDQsImV4cCI6MTcwNzQyMzIwNH0.1y1ujnpUo-LBMeVCw7S22JCwzhgacqSoR5vVg8p01v8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDc0MjI5MDMsImV4cCI6MTcwNzQyNDkwM30.umOTGQ72jBElj-LO8CIoonFK_AokI-aOslwBx3NLM90
 Content-Type: application/json
 
 ### delete messages
@@ -83,5 +83,16 @@ Content-Type: application/json
 
 { 
 "user_id":"65baeb34b3128250da42b385"
+
+}
+
+### delete user
+
+Delete http://localhost:3000/users/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDc0MjI5MDMsImV4cCI6MTcwNzQyNDkwM30.umOTGQ72jBElj-LO8CIoonFK_AokI-aOslwBx3NLM90
+Content-Type: application/json
+
+{ 
+"id":"65c52c0a23f11a949639812c"
 
 }
