@@ -240,3 +240,20 @@ exports.delete_user = asyncHandler(async (req, res, next) => {
 
 });
 
+
+// delete message
+
+exports.delete_message = asyncHandler(async (req, res, next) => {
+
+  try {
+    await Message.findOneAndDelete({ _id: req.body.id })
+
+    let allPostsSent = await Message.find({ sentTo: req.body.userName }).populate('sentTo').populate('sentBy').exec()
+    let allPostsBy = await Message.find({ sentBy: req.body.userName }).populate('sentBy').populate('sentTo').exec()
+    res.status(200).json({ allPostsSent: allPostsSent, allPostsBy: allPostsBy })
+
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+
+});
