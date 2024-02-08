@@ -2,6 +2,8 @@
 const express = require("express");
 const router = express.Router();
 
+
+
 // Require controller modules.
 //const nonUser_controller = require("../controllers/nonUserController");
 const auth_controller = require("../controllers/authController");
