@@ -158,6 +158,23 @@ exports.post_pic = [
   async function (req, res, next) {
 
     try {
+
+      //delete old pic
+
+      let userPic = await User.findById(req.body.id);
+
+    //delete pic file
+    if (userPic.image != "noProfile.png") {
+      fs.unlink("./uploads/" + userPic.image, (err) => {
+        if (err) {
+          throw err;
+        }
+
+        console.log("Delete File successful.");
+      });
+    }
+
+  
       await User.findByIdAndUpdate(req.body.id, { image: req.file.filename });
       let allUsers = await User.find().exec()
       res.status(200).json(allUsers)
