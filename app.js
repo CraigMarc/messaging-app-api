@@ -36,7 +36,7 @@ app.use(
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://blog-public-two.vercel.app", "https://blog-user-beta.vercel.app"],
+    origin: ["http://localhost:5173", "https://chic-gecko-10572b.netlify.app/"],
     credentials: true,
   })
 );
