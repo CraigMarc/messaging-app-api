@@ -164,7 +164,7 @@ exports.post_pic = [
       let userPic = await User.findById(req.body.id);
 
     //delete pic file
-    if (userPic.image != "noProfile.png") {
+    if (userPic.image != "image-1708024677240.png") {
       fs.unlink("./uploads/" + userPic.image, (err) => {
         if (err) {
           throw err;
@@ -229,7 +229,7 @@ exports.delete_user = asyncHandler(async (req, res, next) => {
     let userPic = await User.findById(req.body.id);
 
     //delete pic file
-    if (userPic.image != "noProfile.png") {
+    if (userPic.image != "image-1708024677240.png") {
       fs.unlink("./uploads/" + userPic.image, (err) => {
         if (err) {
           throw err;

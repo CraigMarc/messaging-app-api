@@ -82,7 +82,7 @@ exports.sign_up = [
             lastName: req.body.lastName,
             userName: req.body.userName,
             password: hashedPassword,
-            image: 'noProfile.png'
+            image: "image-1708024677240.png"
           })
           const user = new User(userDetail);
           await user.save()
