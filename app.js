@@ -11,23 +11,45 @@ const passport = require("passport");
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const User = require("./models/user");
-
+const compression = require("compression");
+const helmet = require("helmet");
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
 
-/* restrict access later ***********
+app.use(compression());
+
+// Add helmet to the middleware chain.
+// Set CSP headers to allow our Bootstrap and Jquery to be served
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      "script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
+    },
+  }),
+);
+
+// Set up rate limiter: maximum of twenty requests per minute
+const RateLimit = require("express-rate-limit");
+const limiter = RateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 20,
+});
+// Apply rate limiter to all requests
+app.use(limiter);
+
+
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://blog-public-two.vercel.app", "https://blog-user-beta.vercel.app"],
     credentials: true,
   })
-);*/
+);
 
-
-app.use(cors());
+/*
+app.use(cors());*/
 
 // connect database
 
