@@ -1,4 +1,4 @@
-#MessagesApp API
+# MessagesApp API
 
 This is the Api for the Messaging App it is built with node.js and performs controls logins with JSON web tokens and performs CRUD operations on the MongoDb database. 
 
