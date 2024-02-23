@@ -24,30 +24,30 @@ Content-Type: application/json
 ### get user messages
 
 Post http://localhost:3000/users/allmessages
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDc0MjI5MDMsImV4cCI6MTcwNzQyNDkwM30.umOTGQ72jBElj-LO8CIoonFK_AokI-aOslwBx3NLM90
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDg3MjM5NDcsImV4cCI6MTcwODcyNTk0N30.wR6lW6u_T8kF2XzXHJjSxakwz_OJ4UBnHIXczfiNz0U
 Content-Type: application/json
 
 { 
-"userName":"65baeb34b3128250da42b385"
+"userName":"65c695b9716db13239ffa385"
 
 }
 
 ### send message
 
 Post http://localhost:3000/users/messages
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDczNDQ1OTYsImV4cCI6MTcwNzM0NjU5Nn0.TxJOjSXt14UlSsTtLvfcqjgiikYQS2ZxN3SEvt5lHjs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDg3MjUyMDAsImV4cCI6MTcwODcyNzIwMH0.ytkxAFWIc18Nnm0HNuzlaF92_KvRqgUxYJPzTvhtZHs
 Content-Type: application/json
 
 { 
 "sentBy":"65baeb34b3128250da42b385", 
-"sentTo": "65bc1031d08cc18ebd189239",
+"sentTo": "65c695b9716db13239ffa385",
 "text": "my fith message"
 }
 
 ### get users
 
 Get http://localhost:3000/users/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDc0MjI5MDMsImV4cCI6MTcwNzQyNDkwM30.umOTGQ72jBElj-LO8CIoonFK_AokI-aOslwBx3NLM90
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImpncmVlbkB5YWhvby5jb20iLCJpYXQiOjE3MDg3MjM5NDcsImV4cCI6MTcwODcyNTk0N30.wR6lW6u_T8kF2XzXHJjSxakwz_OJ4UBnHIXczfiNz0U
 Content-Type: application/json
 
 ### delete messages

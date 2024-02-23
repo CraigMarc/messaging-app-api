@@ -7,6 +7,8 @@ const MessageSchema = new Schema({
   sentTo: { type: Schema.Types.ObjectId, ref: "User" },
   timestamp: { type: Date, default: new Date() },
   text: { type: String, required: true },
+  time: { type: Number, required: true },
+  read: { type: Boolean, required: true }
 });
 
 

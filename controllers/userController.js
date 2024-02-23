@@ -92,7 +92,9 @@ exports.new_message = [
   asyncHandler(async (req, res, next) => {
     // Extract the validation errors from a request.
     const errors = validationResult(req);
-
+    
+    let date = new Date()
+    let time = date.getTime()
 
 
     if (!errors.isEmpty()) {
@@ -119,6 +121,8 @@ exports.new_message = [
           sentBy: req.body.sentBy,
           sentTo: req.body.sentTo,
           text: req.body.text,
+          time: time,
+          read: false
 
         })
         const user = new Message(messageDetail);
@@ -163,18 +167,18 @@ exports.post_pic = [
 
       let userPic = await User.findById(req.body.id);
 
-    //delete pic file
-    if (userPic.image != "image-1708024677240.png") {
-      fs.unlink("./uploads/" + userPic.image, (err) => {
-        if (err) {
-          throw err;
-        }
+      //delete pic file
+      if (userPic.image != "image-1708024677240.png") {
+        fs.unlink("./uploads/" + userPic.image, (err) => {
+          if (err) {
+            throw err;
+          }
 
-        console.log("Delete File successful.");
-      });
-    }
+          console.log("Delete File successful.");
+        });
+      }
 
-  
+
       await User.findByIdAndUpdate(req.body.id, { image: req.file.filename });
       let allUsers = await User.find().exec()
       res.status(200).json(allUsers)
@@ -241,8 +245,8 @@ exports.delete_user = asyncHandler(async (req, res, next) => {
 
     // delete all users messages
 
-    await Message.deleteMany({sentTo: req.body.id})
-    await Message.deleteMany({sentBy: req.body.id})
+    await Message.deleteMany({ sentTo: req.body.id })
+    await Message.deleteMany({ sentBy: req.body.id })
 
 
 
